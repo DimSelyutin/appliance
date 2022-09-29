@@ -6,6 +6,7 @@ import java.util.Objects;
 import by.element.task.appliance.bean.appliance.bean.ElectricalAppliance;
 
 public class Multicooker extends ElectricalAppliance implements Serializable{
+    private static final long serialVersionUID = 1L;
 
     private String typeCoating;
     private int volume;
@@ -53,7 +54,7 @@ public class Multicooker extends ElectricalAppliance implements Serializable{
     public void setMaxTemperature(int maxTemperature) {
         this.maxTemperature = maxTemperature;
     }
-    
+
 
     @Override
     public String toString() {

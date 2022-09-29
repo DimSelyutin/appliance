@@ -1,6 +1,10 @@
 package by.element.task.appliance.bean.appliance.bean;
 
-public abstract class ElectricalAppliance {
+import java.io.Serializable;
+
+public abstract class ElectricalAppliance implements Serializable{
+    private static final long serialVersionUID = 1L;
+    
     
     public String model;
     public int voltage;
