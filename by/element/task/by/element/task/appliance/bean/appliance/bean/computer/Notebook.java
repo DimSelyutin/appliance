@@ -60,6 +60,6 @@ public class Notebook extends Computer implements Serializable{
 
     @Override
     public String toString() {
-        return "Notebook [batteryVolume=" + batteryVolume + ", weight=" + weight + "]";
+        return "Notebook [Model="+model+", core="+core+", RAM="+ram+", HDD="+ide+"batteryVolume=" + batteryVolume + ", weight=" + weight + "]";
     }
 }

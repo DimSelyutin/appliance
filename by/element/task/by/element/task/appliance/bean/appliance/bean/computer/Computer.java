@@ -4,17 +4,20 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import by.element.task.appliance.bean.appliance.bean.ElectricalAppliance;
+import by.element.task.appliance.bean.appliance.dao.Data;
 
-public class Computer extends ElectricalAppliance implements Serializable {
+public class Computer extends ElectricalAppliance implements Serializable, Data {
     private static final long serialVersionUID = -4862926644813433707L;
 
     
-    private int core;
-    private int ram;
-    private int ide;
+    protected int core;
+    protected int ram;
+    protected int ide;
 
 
-    Computer(){
+   
+
+    public Computer(){
         this.model = "Unset";
         this.voltage = 0;
         this.core = 0;
@@ -30,6 +33,7 @@ public class Computer extends ElectricalAppliance implements Serializable {
         this.ide = ide;
     }
 
+    
     public int getCore() {
         return core;
     }
@@ -69,4 +73,5 @@ public class Computer extends ElectricalAppliance implements Serializable {
     public int hashCode() {
         return Objects.hash(model,voltage,condition,core,ram,ide);
     }
+
 }
