@@ -1,6 +1,10 @@
 package by.element.task.appliance.bean.appliance.bean.computer;
 
-public class Notebook extends Computer{
+import java.io.Serializable;
+
+public class Notebook extends Computer implements Serializable{
+    private static final long serialVersionUID = -4862926644813433707L;
+
    
     private int batteryVolume;
     private int weight;

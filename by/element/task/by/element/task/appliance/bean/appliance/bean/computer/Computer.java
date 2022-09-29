@@ -6,7 +6,7 @@ import java.util.Objects;
 import by.element.task.appliance.bean.appliance.bean.ElectricalAppliance;
 
 public class Computer extends ElectricalAppliance implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -4862926644813433707L;
 
     
     private int core;
