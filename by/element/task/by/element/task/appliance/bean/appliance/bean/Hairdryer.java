@@ -1,11 +1,9 @@
-package by.element.task.appliance.bean.appliance.bean.household;
+package by.element.task.appliance.bean.appliance.bean;
 
 import java.io.Serializable;
-import java.util.Objects;
-
-import by.element.task.appliance.bean.appliance.bean.ElectricalAppliance;
 
 public class Hairdryer extends ElectricalAppliance implements Serializable {
+
     private static final long serialVersionUID = -4862926644813433707L;
 
 
@@ -15,17 +13,15 @@ public class Hairdryer extends ElectricalAppliance implements Serializable {
     
 
     
-    Hairdryer(){
-        this.model = "Unset";
-        this.voltage = 0;
+    public Hairdryer(){
+        super("Unset", 0);
         this.coolerSpeed = 0;
         this.numberOfMode = 0;
         this.airTemperature = 0;
     }
     
-    public Hairdryer(String model, int numberOfMode,int coolerSpeed, int airTemperature, int voltage) {
-        this.model = model;
-        this.voltage = voltage;
+    public Hairdryer(String model, int voltage, int numberOfMode,int coolerSpeed, int airTemperature) {
+        super(model, voltage);
         this.coolerSpeed = coolerSpeed;
         this.numberOfMode = numberOfMode;
         this.airTemperature = airTemperature;
@@ -60,22 +56,35 @@ public class Hairdryer extends ElectricalAppliance implements Serializable {
     
 
     @Override
-    public String toString() {
-        return getClass()+":"+"Model:"+model+"; Voltage:"+voltage+ "; CoolerSpeed: "+coolerSpeed+"; AirTemperature: "+airTemperature+"; Number of Mode:"+numberOfMode;
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + coolerSpeed;
+        result = prime * result + numberOfMode;
+        result = prime * result + airTemperature;
+        return result;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if(this == obj) {return true;}
-        if(null == obj){return false;}
-        if(getClass() != obj.getClass()){return false;}
-        Hairdryer hair = (Hairdryer)obj;
-        return Objects.equals(model, hair.model) &&  voltage == hair.voltage 
-                && airTemperature == hair.airTemperature && coolerSpeed == hair.coolerSpeed && numberOfMode == hair.numberOfMode;
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Hairdryer other = (Hairdryer) obj;
+        if (coolerSpeed != other.coolerSpeed)
+            return false;
+        if (numberOfMode != other.numberOfMode)
+            return false;
+        if (airTemperature != other.airTemperature)
+            return false;
+        return true;
     }
-    
+
     @Override
-    public int hashCode() {
-        return Objects.hash(model,voltage,condition,coolerSpeed,airTemperature,numberOfMode);
+    public String toString() {
+        return "Hairdryer:"+super.toString()+"coolerSpeed=" + coolerSpeed + ", numberOfMode=" + numberOfMode + ", airTemperature="+ airTemperature + "]";
     }
 }

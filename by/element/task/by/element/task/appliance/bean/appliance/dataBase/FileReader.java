@@ -1,4 +1,4 @@
-package by.element.task.appliance.bean.appliance.dataBase;
+package by.element.task.appliance.bean.appliance.database;
 
 import java.io.IOException;
 import java.nio.file.Files;

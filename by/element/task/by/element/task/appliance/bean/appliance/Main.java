@@ -1,7 +1,8 @@
 package by.element.task.appliance.bean.appliance;
 
-import by.element.task.appliance.bean.appliance.bean.computer.Computer;
-import by.element.task.appliance.bean.appliance.bean.computer.Notebook;
+import by.element.task.appliance.bean.appliance.bean.Computer;
+import by.element.task.appliance.bean.appliance.bean.Notebook;
+// import by.element.task.appliance.bean.appliance.bean.Notebook;
 import by.element.task.appliance.bean.appliance.dao.Data;
 
 
@@ -11,7 +12,8 @@ public class Main {
         
         Computer comp = new Computer("Asus", 220, 4, 16, 500);
         System.out.println(comp.toString());
-        Computer note = new Notebook("Lenovo",  220, 4, 16, 500, 3500,2);
+        Notebook note = new Notebook("Lenovo", 220, 4,16,500,2400,3);
         System.out.println(note.toString());
+        
     }
 }

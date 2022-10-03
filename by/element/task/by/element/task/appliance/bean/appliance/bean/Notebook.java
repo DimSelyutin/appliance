@@ -1,8 +1,9 @@
-package by.element.task.appliance.bean.appliance.bean.computer;
+package by.element.task.appliance.bean.appliance.bean;
 
 import java.io.Serializable;
 
 public class Notebook extends Computer implements Serializable{
+
     private static final long serialVersionUID = -4862926644813433707L;
 
    
@@ -10,10 +11,12 @@ public class Notebook extends Computer implements Serializable{
     private int weight;
 
     public Notebook(){
-
+        super("Unset", 0, 0, 0, 0);
+        batteryVolume = 0;
+        weight = 0;
     }
     
-    public Notebook(String model, int core, int ram, int ide,int voltage, int batteryVolume, int weight) {
+    public Notebook(String model,int voltage, int core, int ram, int ide, int batteryVolume, int weight) {
         super(model, voltage, core, ram, ide);
         this.batteryVolume = batteryVolume;
         this.weight = weight;
@@ -33,14 +36,6 @@ public class Notebook extends Computer implements Serializable{
         this.weight = weight;
     }
     
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + batteryVolume;
-        result = prime * result + weight;
-        return result;
-    }
 
     @Override
     public boolean equals(Object obj) {
@@ -58,8 +53,19 @@ public class Notebook extends Computer implements Serializable{
         return true;
     }
 
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + batteryVolume;
+        result = prime * result + weight;
+        return result;
+    }
+
     @Override
     public String toString() {
-        return "Notebook [Model="+model+", core="+core+", RAM="+ram+", HDD="+ide+"batteryVolume=" + batteryVolume + ", weight=" + weight + "]";
+        return "Notebook:"+ super.toString() +", batteryVolume=" + batteryVolume + ", weight=" + weight;
     }
+
 }

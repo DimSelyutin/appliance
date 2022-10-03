@@ -1,11 +1,12 @@
-package by.element.task.appliance.bean.appliance.bean.cooker;
+package by.element.task.appliance.bean.appliance.bean;
 
 import java.io.Serializable;
-import java.util.Objects;
-
-import by.element.task.appliance.bean.appliance.bean.ElectricalAppliance;
 
 public class Multicooker extends ElectricalAppliance implements Serializable{
+    
+
+    
+
     private static final long serialVersionUID = -4862926644813433707L;
 
     private String typeCoating;
@@ -13,17 +14,15 @@ public class Multicooker extends ElectricalAppliance implements Serializable{
     private int maxTemperature;
     
 
-    Multicooker(){
-        this.model = "Unset";
-        this.voltage = 0;
+    public Multicooker(){
+        super("Unset", 0);
         this.typeCoating = "Unknown";
         this.volume = 0;
         this.maxTemperature = 0;
     }
 
     public Multicooker(String model, String typeCoating, int volume, int maxTemperature, int voltage) {
-        this.model = model;
-        this.voltage = voltage;
+        super(model, voltage);
         this.typeCoating = typeCoating;
         this.volume = volume;
         this.maxTemperature = maxTemperature;
@@ -57,22 +56,40 @@ public class Multicooker extends ElectricalAppliance implements Serializable{
 
 
     @Override
-    public String toString() {
-        return getClass()+":"+"Model:"+model+"; Voltage:"+voltage+ "; TypeOfCoating: "+typeCoating+"; MaxTemperature: "+maxTemperature+"; Volume:"+volume;
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((typeCoating == null) ? 0 : typeCoating.hashCode());
+        result = prime * result + volume;
+        result = prime * result + maxTemperature;
+        return result;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if(this == obj) {return true;}
-        if(null == obj){return false;}
-        if(getClass() != obj.getClass()){return false;}
-        Multicooker multi = (Multicooker)obj;
-        return Objects.equals(model, multi.model) && Objects.equals(typeCoating, multi.typeCoating) &&  voltage == multi.voltage 
-                && maxTemperature == multi.maxTemperature && volume == multi.volume;
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Multicooker other = (Multicooker) obj;
+        if (typeCoating == null) {
+            if (other.typeCoating != null)
+                return false;
+        } else if (!typeCoating.equals(other.typeCoating))
+            return false;
+        if (volume != other.volume)
+            return false;
+        if (maxTemperature != other.maxTemperature)
+            return false;
+        return true;
     }
     
+
+
     @Override
-    public int hashCode() {
-        return Objects.hash(model,voltage,condition,typeCoating,maxTemperature,volume);
+    public String toString() {
+        return "Multicooker: "+super.toString()+", typeCoating=" + typeCoating + ", volume=" + volume + ", maxTemperature=" + maxTemperature;
     }
 }
