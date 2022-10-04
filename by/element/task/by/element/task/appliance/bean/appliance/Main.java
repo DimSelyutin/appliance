@@ -19,6 +19,7 @@ public class Main implements Serializable {
 
 
         console.print(f.find(6));
+        console.print(f.find("Asus"));
         
         
        

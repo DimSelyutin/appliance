@@ -2,9 +2,8 @@ package by.element.task.appliance.bean.appliance.bean;
 
 import java.io.Serializable;
 
-import by.element.task.appliance.bean.appliance.dao.Data;
 
-public class Computer extends ElectricalAppliance implements Data, Serializable {
+public class Computer extends ElectricalAppliance implements Serializable {
 
     private static final long serialVersionUID = -4862926644813433707L;
 
