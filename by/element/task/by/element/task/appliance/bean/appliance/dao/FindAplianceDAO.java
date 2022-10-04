@@ -7,5 +7,8 @@ import by.element.task.appliance.bean.appliance.bean.ElectricalAppliance;
 
 public interface FindAplianceDAO {
     List<Computer> find(int property);
+    List<Computer> find(String model);
+
+    
 
 }
