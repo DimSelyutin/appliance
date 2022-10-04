@@ -2,39 +2,33 @@ package by.element.task.appliance.bean.appliance.bean;
 
 import java.io.Serializable;
 
-public abstract class ElectricalAppliance implements Serializable{
-    private static final long serialVersionUID = 1L;
-    
-    
+public abstract class ElectricalAppliance implements Serializable {
+    private static final long serialVersionUID = -4862926644813433707L;
+
     private String model;
     private int voltage;
     private boolean condition;
-    
-    
-    public ElectricalAppliance(){
+
+    public ElectricalAppliance() {
         this.model = "Unset";
         this.voltage = 0;
         this.condition = false;
     }
-    
+
     public ElectricalAppliance(String model, int voltage) {
         this.model = model;
         this.voltage = voltage;
         this.condition = false;
     }
-    
-    
-    
-    public void on(){
+
+    public void on() {
         condition = true;
     }
-    
-    public void off(){
+
+    public void off() {
         condition = false;
     }
 
-    
-    
     public String getModel() {
         return model;
     }
@@ -92,8 +86,7 @@ public abstract class ElectricalAppliance implements Serializable{
 
     @Override
     public String toString() {
-        return "Model=" + model + ", condition=" + condition + ", voltage=" + voltage +" ";
+        return "Model=" + model + ", condition=" + condition + ", voltage=" + voltage + " ";
     }
-
 
 }

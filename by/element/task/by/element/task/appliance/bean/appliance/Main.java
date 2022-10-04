@@ -1,19 +1,52 @@
 package by.element.task.appliance.bean.appliance;
 
-import by.element.task.appliance.bean.appliance.bean.Computer;
-import by.element.task.appliance.bean.appliance.bean.Notebook;
-// import by.element.task.appliance.bean.appliance.bean.Notebook;
-import by.element.task.appliance.bean.appliance.dao.Data;
+import java.io.IOException;
+import java.io.Serializable;
 
+import by.element.task.appliance.bean.appliance.database.FileReader;
+import by.element.task.appliance.bean.appliance.database.GenerateBaseFile;
+import by.element.task.appliance.bean.appliance.logic.FindApliance;
 
-public class Main {
-    static Data data = new Computer();
+public class Main implements Serializable {
+    private static final long serialVersionUID = -4862926644813433707L;
+
     public static void main(String[] args) {
-        
-        Computer comp = new Computer("Asus", 220, 4, 16, 500);
-        System.out.println(comp.toString());
-        Notebook note = new Notebook("Lenovo", 220, 4,16,500,2400,3);
-        System.out.println(note.toString());
-        
+        System.out.println("To search apliance choose parametr that you need");
+        FindApliance find = new FindApliance();
+        // find.findByCore();
+    
+        FileReader fr = new FileReader();
+        try {
+            fr.readFile();
+        } catch (ClassNotFoundException | IOException e) {
+            e.printStackTrace();
+        }
+        // try {
+        //     Object obj = fr.readFile();
+        //     System.out.println(obj.toString());
+        // } catch (ClassNotFoundException | IOException e) {
+        //     // TODO Auto-generated catch block
+        //     e.printStackTrace();
+        // }
+
+
     }
+
+
+
+
+    /**
+     * Generate file of data file(model, voltage,.....)
+     */
+    public static void generatData(){
+        GenerateBaseFile bs = new GenerateBaseFile();
+        try {
+            bs.generateFile();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    
 }

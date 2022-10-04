@@ -6,29 +6,24 @@ public class Hairdryer extends ElectricalAppliance implements Serializable {
 
     private static final long serialVersionUID = -4862926644813433707L;
 
-
     private int coolerSpeed;
     private int numberOfMode;
     private int airTemperature;
-    
 
-    
-    public Hairdryer(){
+    public Hairdryer() {
         super("Unset", 0);
         this.coolerSpeed = 0;
         this.numberOfMode = 0;
         this.airTemperature = 0;
     }
-    
-    public Hairdryer(String model, int voltage, int numberOfMode,int coolerSpeed, int airTemperature) {
+
+    public Hairdryer(String model, int voltage, int numberOfMode, int coolerSpeed, int airTemperature) {
         super(model, voltage);
         this.coolerSpeed = coolerSpeed;
         this.numberOfMode = numberOfMode;
         this.airTemperature = airTemperature;
     }
-    
-    
-    
+
     public int getCoolerSpeed() {
         return coolerSpeed;
     }
@@ -52,8 +47,6 @@ public class Hairdryer extends ElectricalAppliance implements Serializable {
     public void setAirTemperature(int airTemperature) {
         this.airTemperature = airTemperature;
     }
-   
-    
 
     @Override
     public int hashCode() {
@@ -85,6 +78,7 @@ public class Hairdryer extends ElectricalAppliance implements Serializable {
 
     @Override
     public String toString() {
-        return "Hairdryer:"+super.toString()+"coolerSpeed=" + coolerSpeed + ", numberOfMode=" + numberOfMode + ", airTemperature="+ airTemperature + "]";
+        return "Hairdryer:" + super.toString() + "coolerSpeed=" + coolerSpeed + ", numberOfMode=" + numberOfMode
+                + ", airTemperature=" + airTemperature + "]";
     }
 }

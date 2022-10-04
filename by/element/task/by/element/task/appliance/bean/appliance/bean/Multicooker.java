@@ -2,19 +2,15 @@ package by.element.task.appliance.bean.appliance.bean;
 
 import java.io.Serializable;
 
-public class Multicooker extends ElectricalAppliance implements Serializable{
-    
-
-    
+public class Multicooker extends ElectricalAppliance implements Serializable {
 
     private static final long serialVersionUID = -4862926644813433707L;
 
     private String typeCoating;
     private int volume;
     private int maxTemperature;
-    
 
-    public Multicooker(){
+    public Multicooker() {
         super("Unset", 0);
         this.typeCoating = "Unknown";
         this.volume = 0;
@@ -27,8 +23,6 @@ public class Multicooker extends ElectricalAppliance implements Serializable{
         this.volume = volume;
         this.maxTemperature = maxTemperature;
     }
-
-
 
     public String getTypeCoating() {
         return typeCoating;
@@ -53,7 +47,6 @@ public class Multicooker extends ElectricalAppliance implements Serializable{
     public void setMaxTemperature(int maxTemperature) {
         this.maxTemperature = maxTemperature;
     }
-
 
     @Override
     public int hashCode() {
@@ -85,11 +78,10 @@ public class Multicooker extends ElectricalAppliance implements Serializable{
             return false;
         return true;
     }
-    
-
 
     @Override
     public String toString() {
-        return "Multicooker: "+super.toString()+", typeCoating=" + typeCoating + ", volume=" + volume + ", maxTemperature=" + maxTemperature;
+        return "Multicooker: " + super.toString() + ", typeCoating=" + typeCoating + ", volume=" + volume
+                + ", maxTemperature=" + maxTemperature;
     }
 }

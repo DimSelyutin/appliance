@@ -2,40 +2,40 @@ package by.element.task.appliance.bean.appliance.bean;
 
 import java.io.Serializable;
 
-public class Notebook extends Computer implements Serializable{
+public class Notebook extends Computer implements Serializable {
 
     private static final long serialVersionUID = -4862926644813433707L;
 
-   
     private int batteryVolume;
     private int weight;
 
-    public Notebook(){
+    public Notebook() {
         super("Unset", 0, 0, 0, 0);
         batteryVolume = 0;
         weight = 0;
     }
-    
-    public Notebook(String model,int voltage, int core, int ram, int ide, int batteryVolume, int weight) {
+
+    public Notebook(String model, int voltage, int core, int ram, int ide, int batteryVolume, int weight) {
         super(model, voltage, core, ram, ide);
         this.batteryVolume = batteryVolume;
         this.weight = weight;
     }
 
-
     public int getBatteryVolume() {
         return batteryVolume;
     }
+
     public void setBatteryVolume(int batteryVolume) {
         this.batteryVolume = batteryVolume;
     }
+
     public int getWeight() {
         return weight;
     }
+
     public void setWeight(int weight) {
         this.weight = weight;
     }
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -53,7 +53,6 @@ public class Notebook extends Computer implements Serializable{
         return true;
     }
 
-
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -65,7 +64,7 @@ public class Notebook extends Computer implements Serializable{
 
     @Override
     public String toString() {
-        return "Notebook:"+ super.toString() +", batteryVolume=" + batteryVolume + ", weight=" + weight;
+        return "Notebook:" + super.toString() + ", batteryVolume=" + batteryVolume + ", weight=" + weight;
     }
 
 }

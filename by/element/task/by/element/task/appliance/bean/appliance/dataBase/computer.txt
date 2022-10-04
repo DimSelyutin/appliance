@@ -1,5 +1,0 @@
-Asus
-Lenovo
-LG
-Intel
-AMD
