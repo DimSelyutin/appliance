@@ -13,12 +13,12 @@ public class Main implements Serializable {
 
     public static void main(String[] args) {
         System.out.println("To search apliance choose parametr that you need");
-        
-        FindApliance find = new FindApliance();
+
+        FindApliance f = new FindApliance();
         ConsoleOutPut console = new ConsoleOutPut();
 
 
-        console.print(find.byCore(6));
+        console.print(f.find(6));
         
         
        

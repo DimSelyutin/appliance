@@ -11,7 +11,6 @@ import by.element.task.appliance.bean.appliance.bean.Computer;
 import by.element.task.appliance.bean.appliance.bean.Hairdryer;
 import by.element.task.appliance.bean.appliance.bean.Multicooker;
 import by.element.task.appliance.bean.appliance.bean.Notebook;
-import by.element.task.appliance.bean.appliance.database.WriteObj;
 
 public class GenerateBaseFile implements Serializable {
     private static final long serialVersionUID = -4862926644813433707L;

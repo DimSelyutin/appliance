@@ -4,11 +4,14 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 import by.element.task.appliance.bean.appliance.bean.Computer;
+import by.element.task.appliance.bean.appliance.bean.ElectricalAppliance;
+import by.element.task.appliance.bean.appliance.dao.FindAplianceDAO;
 import by.element.task.appliance.bean.appliance.database.FileReader;
 
-public class FindApliance implements Serializable {
+public class FindApliance implements FindAplianceDAO, Serializable {
     private static final long serialVersionUID = -4862926644813433707L;
     
     private FileReader read = new FileReader();
@@ -18,10 +21,10 @@ public class FindApliance implements Serializable {
 
     }
 
-
-    public ArrayList<Computer> byCore(int core){
-        ArrayList<Computer> find = new ArrayList<>();
-        ArrayList<Computer> comp = new ArrayList<>();
+    @Override
+    public List<Computer> find(int core) {
+        List<Computer> find = new ArrayList<>();
+        List<Computer> comp = new ArrayList<>();
         try {
             for (int i = 0; i < 20; i++) {
                 comp.add((Computer)read.readFile().get(i));
@@ -38,6 +41,5 @@ public class FindApliance implements Serializable {
         }
 
         return find;
-        
     }
 }
