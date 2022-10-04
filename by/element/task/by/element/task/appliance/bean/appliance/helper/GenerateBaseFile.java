@@ -1,4 +1,4 @@
-package by.element.task.appliance.bean.appliance.database;
+package by.element.task.appliance.bean.appliance.helper;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,11 +11,12 @@ import by.element.task.appliance.bean.appliance.bean.Computer;
 import by.element.task.appliance.bean.appliance.bean.Hairdryer;
 import by.element.task.appliance.bean.appliance.bean.Multicooker;
 import by.element.task.appliance.bean.appliance.bean.Notebook;
+import by.element.task.appliance.bean.appliance.database.WriteObj;
 
 public class GenerateBaseFile implements Serializable {
     private static final long serialVersionUID = -4862926644813433707L;
 
-    public GenerateBaseFile(){
+    public GenerateBaseFile() {
 
     }
 
@@ -24,8 +25,7 @@ public class GenerateBaseFile implements Serializable {
         WriteObj obj = new WriteObj();
         Random rand = new Random();
         HashMap<Integer, Object> map = new HashMap<>();
-        map.put(1, new Computer("Asus", 220, 4, 16, 500));
-        map.put(2, new Notebook("Lenovo", 220, 4, 16, 500, 2400, 3));
+
         for (int i = 0; i < 80; i++) {
             if (i < 20) {
                 map.put(i, new Computer(name(rand.nextInt(1, 5)), gen(22, 23) * 10, gen(2, 24), gen(2, 64),
@@ -45,13 +45,11 @@ public class GenerateBaseFile implements Serializable {
         }
         obj.serializeObj(map);
 
-        FileReader fr = new FileReader();
         System.out.println("Succes!");
-       
 
     }
 
-    public static int gen(int a, int b) {
+    public static int gen(int a, int b) {// helper
         int x;
         Random rand = new Random();
         if ((x = rand.nextInt(a, b)) % 2 != 0) {
@@ -60,7 +58,7 @@ public class GenerateBaseFile implements Serializable {
         return x;
     }
 
-    public static String name(int a) throws IOException {
+    public static String name(int a) throws IOException {// helper
         File f = new File("base/model.txt");
         String line = Files.readAllLines(f.toPath()).get(a);
 

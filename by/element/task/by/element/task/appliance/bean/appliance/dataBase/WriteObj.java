@@ -46,7 +46,7 @@ public class WriteObj implements Serializable {
         return succesOrFail;
     }
 
-    public boolean serializeAddressJDK7(Object comp) {
+    public boolean serializeObjJDK7(HashMap<Integer, Object> comp) {
 
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("databse/base.ser"))) {
 
