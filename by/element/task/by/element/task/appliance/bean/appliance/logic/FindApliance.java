@@ -65,6 +65,7 @@ public class FindApliance implements FindAplianceDAO, Serializable {
 
         return find;
     }
+
     
     
     
