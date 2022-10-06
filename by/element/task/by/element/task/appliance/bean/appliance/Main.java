@@ -26,7 +26,7 @@ public class Main{
         FileDAOtxt fl = new FileDAOtxt();
        
         String aplName = "VacuumCleaner";
-        ////////////////////////oven
+
         HashMap<Enum, Object> req = new HashMap<>();
 
         // req.put(Oven.CAPACITY, 32);
