@@ -1,25 +1,49 @@
 package by.element.task.appliance.bean.appliance;
 
 
-import java.io.IOException;
-import java.io.Serializable;
 
-import by.element.task.appliance.bean.appliance.helper.GenerateBaseFile;
-import by.element.task.appliance.bean.appliance.logic.FindApliance;
+
+import java.io.IOException;
+import java.util.HashMap;
+
+import by.element.task.appliance.bean.appliance.dao.impl.FileDAOtxt;
+import by.element.task.appliance.bean.appliance.entity.request.AllProperty;
+import by.element.task.appliance.bean.appliance.entity.request.RequsetApliance;
+import by.element.task.appliance.bean.appliance.entity.request.AllProperty.Oven;
 import by.element.task.appliance.bean.appliance.view.ConsoleOutPut;
 
-public class Main implements Serializable {
-    private static final long serialVersionUID = -4862926644813433707L;
+public class Main{
 
-    public static void main(String[] args) {
-        System.out.println("To search apliance choose parametr that you need");
 
-        FindApliance f = new FindApliance();
+    public static void main(String[] args) throws IOException {
+        System.out.println("To search apliance choose parametr that you need:");
         ConsoleOutPut console = new ConsoleOutPut();
 
+        
+        
+        FileDAOtxt fl = new FileDAOtxt();
+       
+        String aplName = "Oven";
+        ////////////////////////oven
+        HashMap<Enum, Object> req = new HashMap<>();
 
-        console.print(f.find(6));
-        console.print(f.find("Asus"));
+        req.put(Oven.CAPACITY, 32);
+        req.put(Oven.DEPTH, 60);
+
+
+        RequsetApliance ra = new RequsetApliance(aplName, req);
+
+        
+
+        console.print(fl.find(ra));
+
+        //////////////////////////electical apliance
+
+
+
+        
+
+
         
         
        
@@ -32,18 +56,6 @@ public class Main implements Serializable {
 
 
 
-    /**
-     * Generate file of data file(model, voltage,.....)
-     */
-    public static void generatData(){
-        GenerateBaseFile bs = new GenerateBaseFile();
-        try {
-            bs.generateFile();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
 
     
 }
