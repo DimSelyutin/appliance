@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -17,6 +16,7 @@ import by.element.task.appliance.bean.appliance.entity.request.RequsetApliance;
 import by.element.task.appliance.bean.appliance.entity.request.AllProperty.Laptop;
 import by.element.task.appliance.bean.appliance.entity.request.AllProperty.Oven;
 import by.element.task.appliance.bean.appliance.entity.request.AllProperty.VacuumCleaner;
+
 
 public class FileDAOtxt implements FindAplianceDAO {
     private String path = "by/element/task/by/element/task/appliance/bean/appliance/apliance/apliance_db.txt";
