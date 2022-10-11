@@ -1,4 +1,4 @@
-package by.element.task.appliance.bean.appliance.entity.request;
+package by.element.task.entity.property;
 
 public final class AllProperty {
     public static enum Oven{
