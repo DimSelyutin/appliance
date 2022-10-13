@@ -2,6 +2,7 @@ package by.element.task;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -13,47 +14,48 @@ import by.element.task.entity.property.AllProperty.*;
 import by.element.task.view.ConsoleOutPut;
 
 public class Main {
-
+    
     public static void main(String[] args)
-            throws IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("To search apliance enter parametrs that you need:");
-
-        System.out.print("Enter appliance group: ");
-        String appGroup = sc.nextLine();
-        
-        
-        
-        System.out.println("Enter parametrs of "+appGroup+":");
-        System.out.println("To skip the parameter press Enter!");
-        
-        Map<String, Object> prop = propCollector(appGroup);
+    throws IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
 
 
-
-
-        Property property = new Property(appGroup, prop);
         ConsoleOutPut console = new ConsoleOutPut();
 
         FindApplianceDAOImpl finDAO = new FindApplianceDAOImpl();
 
-        console.printApp(finDAO.find(property));
+        Property property = propCollector();
+        List<String> findApp = finDAO.find(property);
+
+
+        if (!findApp.isEmpty()) {
+            console.printApp(findApp);
+        } else {
+            System.out.println("Appliance not found!");
+        }
 
     }
 
-    public void putterIn(String propName, Object propValue){
 
+    private static Property propCollector(){
 
-    }
-
-    private static Map<String, Object> propCollector(String appGroup){
         Scanner sc = new Scanner(System.in);
         Map<String, Object> prop = new HashMap<>();
+
+
+        System.out.println("To search apliance enter parametrs that you need:");
+        System.out.print("Enter appliance group: ");
+        String appGroup = sc.nextLine();
+
+
+        System.out.println("To skip the parameter press Enter!");
+        System.out.println("Enter parametrs of "+appGroup+":");
+
+
         switch (appGroup) {
             case "Oven":
                 for (Oven string : Oven.values()) {
                     System.out.print(string+": ");
-                    prop.put(string+"", sc.nextLine());
+                    prop.put(string.toString(), sc.nextLine());
                 }
                 break;
 
@@ -92,10 +94,11 @@ public class Main {
                 }
                 break;
             default:
-                System.out.println("Enter write ");
+                System.out.println("Check the entered parameters or skip them.");
                 break;
         }
-        return prop;
+        return new Property(appGroup, prop);
+       
     } 
 
 }
