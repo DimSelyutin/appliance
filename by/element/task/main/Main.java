@@ -1,4 +1,4 @@
-package by.element.task;
+package by.element.task.main;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -6,12 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import by.element.task.main.dao.impl.FindApplianceDAOImpl;
+import by.element.task.main.entity.property.Property;
+import by.element.task.main.entity.property.AllProperty.*;
+import by.element.task.main.view.ConsoleOutPut;
 
-import by.element.task.dao.impl.FindApplianceDAOImpl;
-
-import by.element.task.entity.property.Property;
-import by.element.task.entity.property.AllProperty.*;
-import by.element.task.view.ConsoleOutPut;
 
 public class Main {
     
