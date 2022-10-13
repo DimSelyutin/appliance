@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import by.element.task.main.ApplianceDataMatcher;
-import by.element.task.main.FileReaderTxt;
 import by.element.task.main.dao.FindApplianceDAO;
+import by.element.task.main.entity.ApplianceDataMatcher;
+import by.element.task.main.entity.FileReaderTxt;
 import by.element.task.main.entity.property.Property;
 
 
