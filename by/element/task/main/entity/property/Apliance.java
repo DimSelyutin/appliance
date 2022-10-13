@@ -8,6 +8,14 @@ public class Apliance implements Serializable {
 
     private String maker;
 
+    public String getMaker() {
+        return maker;
+    }
+
+    public void setMaker(String maker) {
+        this.maker = maker;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
