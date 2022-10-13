@@ -1,4 +1,4 @@
-package by.element.task.main.dao;
+package by.element.task.main;
 
 import java.util.ArrayList;
 import java.util.List;
