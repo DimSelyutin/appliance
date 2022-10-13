@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public class ConsoleOutPut {
-    public void print(List<String> list){
+    public void printApp(List<String> list){
         for (Object object : list) {
             System.out.println(object);
         }

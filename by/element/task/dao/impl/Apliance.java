@@ -1,5 +1,7 @@
 package by.element.task.dao.impl;
 
-public class Apliance {
+import java.io.Serializable;
+
+public class Apliance implements Serializable {
     
 }
