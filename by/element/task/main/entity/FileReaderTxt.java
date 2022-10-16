@@ -41,9 +41,10 @@ public class FileReaderTxt {
 
         List<String> appliances = new ArrayList<>();
         if (groupName == null) {
-            return appliances = readFile();
+             appliances = readFile();
         } else {
-            return appliances = readFile(groupName);
+             appliances = readFile(groupName);
         }
+        return appliances;
     }
 }

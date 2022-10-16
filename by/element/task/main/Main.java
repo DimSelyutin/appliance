@@ -17,7 +17,6 @@ public class Main {
     public static void main(String[] args)
     throws IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
 
-
         ConsoleOutPut console = new ConsoleOutPut();
 
         FindApplianceDAOImpl finDAO = new FindApplianceDAOImpl();
