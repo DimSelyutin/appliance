@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import by.element.task.main.dao.FindApplianceDAO;
-import by.element.task.main.entity.ApplianceDataMatcher;
-import by.element.task.main.entity.FileReaderTxt;
+import by.element.task.main.dao.util.ApplianceDataMatcher;
+import by.element.task.main.dao.util.FileReaderTxt;
 import by.element.task.main.entity.property.Property;
 
 

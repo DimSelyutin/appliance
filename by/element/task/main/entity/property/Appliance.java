@@ -2,12 +2,21 @@ package by.element.task.main.entity.property;
 
 import java.io.Serializable;
 
-public class Apliance implements Serializable {
+public class Appliance implements Serializable {
+    
     static final long SerialVersionUID = -4862926644813433707L;
-
-
+    
+    
     private String maker;
+    
 
+    public Appliance(){
+        this.maker = "Undifined";
+    }
+    public Appliance(String maker) {
+        this.maker = maker;
+    }
+    
     public String getMaker() {
         return maker;
     }
@@ -32,7 +41,7 @@ public class Apliance implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Apliance other = (Apliance) obj;
+        Appliance other = (Appliance) obj;
         if (maker == null) {
             if (other.maker != null)
                 return false;
