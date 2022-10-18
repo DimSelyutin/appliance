@@ -97,11 +97,13 @@ public class ApplianceCreator {
 
 
     private Appliance createVacuumCleaner(List<String> valueOfProperty) {
-        return new VacuumCleaner(Float.parseFloat(valueOfProperty.get(0)) ,"Dyson",
+        return new VacuumCleaner("LG",
+                Float.parseFloat(valueOfProperty.get(0)) ,
                 valueOfProperty.get(1),
                 valueOfProperty.get(2),
+                valueOfProperty.get(3),
                 Float.parseFloat(valueOfProperty.get(3)),
-                Float.parseFloat(valueOfProperty.get(4)));
+                Float.parseFloat(valueOfProperty.get(5)));
     }
 
 
