@@ -48,8 +48,6 @@ public class FileReaderTxt {
         } else {
              appliances = readFile(groupName);
         }
-
         return appliances;
-
     }
 }

@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import by.element.task.main.dao.impl.ApplianceCreator;
+import by.element.task.main.dao.impl.FileApplianceDAOImpl;
 import by.element.task.main.entity.appliance.Appliance;
 import by.element.task.main.entity.property.Property;
 import by.element.task.main.entity.property.AllProperty.*;
-import by.element.task.main.service.AllAppliance;
+
 import by.element.task.main.view.ConsoleOutPut;
 
 
@@ -18,15 +18,14 @@ public class Main {
     
     public static void main(String[] args)
     throws IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
+
+
         ConsoleOutPut console = new ConsoleOutPut();
-        
-        //возвращает подготовленые характер-ки (groupName, Map(key,value))
+
+        FileApplianceDAOImpl finDAO = new FileApplianceDAOImpl();
+
         Property property = propCollector();
-        
-        
-        AllAppliance allAppliance = new AllAppliance();
-        List<Appliance> findApp = allAppliance.findAllAppliance(property);
-        console.printApp(findApp);
+        List<Appliance> findApp = finDAO.find(property);
 
 
         if (!findApp.isEmpty()) {
