@@ -1,4 +1,4 @@
-package by.element.task.main.entity.property;
+package by.element.task.main.entity.appliance;
 
 import java.io.Serializable;
 
@@ -117,7 +117,7 @@ public class Oven extends Appliance implements Serializable {
     }
     @Override
     public String toString() {
-        return "Oven [power_consumption=" + power_consumption + ", weight=" + weight + ", capacity=" + capacity
+        return "Oven ["+super.toString()+"power_consumption=" + power_consumption + ", weight=" + weight + ", capacity=" + capacity
                 + ", depth=" + depth + ", height=" + height + ", width=" + width + "]";
     }
 

@@ -14,19 +14,22 @@ public class FileReaderTxt {
         this.path = path;
     }
 
+    //возвращает все приборы
     private List<String> readFile() throws IOException {
 
-        List<String> allList = Files.readAllLines(Paths.get(path));
-        return allList;
+        List<String> allApplianceLines = Files.readAllLines(Paths.get(path));
+        return allApplianceLines;
 
     }
 
+
+    //делает список приборов найденых по имени типа приборов
     private List<String> readFile(String applianceGroup) throws IOException {
         
         List<String> groupNameList = new ArrayList<>();
-        List<String> allList = Files.readAllLines(Paths.get(path));
+        List<String> allApplianceLines = Files.readAllLines(Paths.get(path));
 
-        for (String appLine : allList) {
+        for (String appLine : allApplianceLines) {
             if (appLine.contains(applianceGroup)) {
                 groupNameList.add(appLine);
             }
@@ -35,7 +38,7 @@ public class FileReaderTxt {
         return groupNameList;
     }
 
-
+    //готовит список приборов в зависимости от типа прибора
     public List<String> selectionApp(String groupName) throws IOException{
         
 

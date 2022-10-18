@@ -15,6 +15,8 @@ public class ApplianceDataMatcher {
         this.property = property;
     }
 
+
+    //готовит строку приборов с найдеными параметрами
     public List<String> match() {
         List<String> dataResult = new ArrayList<>();
         List<String> propString = propToString(property.getProperty());
@@ -28,6 +30,7 @@ public class ApplianceDataMatcher {
         return dataResult;
     }
 
+    //переводит ключ-значение в строку
     public List<String> propToString(Map<String, Object> props) {
         List<String> propString = new ArrayList<>();
         for (Map.Entry<String, Object> entry : props.entrySet()) {
@@ -36,6 +39,8 @@ public class ApplianceDataMatcher {
         return propString;
     }
 
+
+    //проверяет есть ли в строке параметры(props)
     public boolean isContain(String dataResString, List<String> props) {
         for (String s : props) {
             if (!dataResString.contains(s)) {

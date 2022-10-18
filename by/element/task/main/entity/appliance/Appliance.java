@@ -1,4 +1,4 @@
-package by.element.task.main.entity.property;
+package by.element.task.main.entity.appliance;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ public class Appliance implements Serializable {
     
 
     public Appliance(){
-        this.maker = "Undifined";
+        this.maker = "Undefined";
     }
     public Appliance(String maker) {
         this.maker = maker;
