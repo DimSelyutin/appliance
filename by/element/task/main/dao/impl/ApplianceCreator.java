@@ -37,8 +37,9 @@ public class ApplianceCreator {
         int charInStr = appStr.indexOf(":");
             if (charInStr != -1) {
                 groupNameSearch = appStr.substring(0, charInStr).trim();
+            } else {
+                groupNameSearch = "";
             }
-            groupNameSearch = "";
         String[] apps = appStr.split(" ");
         List<String> valueOfProperty = new ArrayList<>();
         for (String string : apps) {
@@ -47,14 +48,14 @@ public class ApplianceCreator {
                 valueOfProperty.add(value);
             }
         }
-        
+
         return switch (groupNameSearch) {
             case "Oven" -> createOven(valueOfProperty);
-            case "Laptop" -> createOven(valueOfProperty);
+            case "Laptop" -> createLapTop(valueOfProperty);
             case "Refrigerator" -> createOven(valueOfProperty);
             case "VacuumCleaner" -> createOven(valueOfProperty);
             case "TabletPC" -> createOven(valueOfProperty);
-            default -> throw new IllegalArgumentException("Unexpected value: " + groupNameSearch);
+            default -> throw new IllegalArgumentException();
             
             
         };
@@ -64,19 +65,23 @@ public class ApplianceCreator {
 
 
     private Appliance createOven(List<String> valueOfProperty) { 
-        List<Integer> numberList = new ArrayList<>();      
-        for (String string : valueOfProperty) {
-            numberList.add(Integer.parseInt(string.trim()));
-        }
-        return new Oven("Gefest", numberList.get(0),numberList.get(1),numberList.get(2),numberList.get(3),(float)numberList.get(4),(float)numberList.get(5));
+        
+        return new Oven("Gefest",   Integer.parseInt(valueOfProperty.get(0)),
+                                    Integer.parseInt(valueOfProperty.get(1)),
+                                    Integer.parseInt(valueOfProperty.get(2)),
+                                    Integer.parseInt(valueOfProperty.get(3)),
+                                    Float.parseFloat(valueOfProperty.get(4)),
+                                    Float.parseFloat(valueOfProperty.get(5)));
+        
     }
 
     private Appliance createLapTop(List<String> valueOfProperty) {
-        List<Integer> numberList = new ArrayList<>();      
-        for (String string : valueOfProperty) {
-            numberList.add(Integer.parseInt(string.trim()));
-        }
-        return new LapTop("Asus", (float)numberList.get(0), null, numberList.get(2), numberList.get(3), (float)numberList.get(4), numberList.get(5));
+         return new LapTop("Gefest", Float.parseFloat(valueOfProperty.get(0)),
+                                    "",
+                                    Integer.parseInt(valueOfProperty.get(2)),
+                                    Integer.parseInt(valueOfProperty.get(3)),
+                                    Float.parseFloat(valueOfProperty.get(4)),
+                                    Integer.parseInt(valueOfProperty.get(5)));
     }
 
 
