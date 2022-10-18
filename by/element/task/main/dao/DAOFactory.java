@@ -4,12 +4,12 @@ import by.element.task.main.dao.impl.FileApplianceDAOImpl;
 
 public final class DAOFactory {
     private static final DAOFactory instance = new DAOFactory();
+    private final ApplianceDAO findappDAO = new FileApplianceDAOImpl();
 
     private DAOFactory(){
         
     };
 
-    private final ApplianceDAO findappDAO = new FileApplianceDAOImpl();
 
     public static DAOFactory getInstance(){
         return instance;

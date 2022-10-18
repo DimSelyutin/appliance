@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import by.element.task.main.dao.impl.FileApplianceDAOImpl;
+
 import by.element.task.main.entity.appliance.Appliance;
 import by.element.task.main.entity.property.Property;
 import by.element.task.main.entity.property.AllProperty.*;
-
+import by.element.task.main.service.ApplianceService;
 import by.element.task.main.view.ConsoleOutPut;
 
 
@@ -19,17 +19,18 @@ public class Main {
     public static void main(String[] args)
     throws IOException, ClassNotFoundException, NoSuchMethodException, SecurityException {
 
-
         ConsoleOutPut console = new ConsoleOutPut();
 
-        FileApplianceDAOImpl finDAO = new FileApplianceDAOImpl();
-
+        ApplianceService allApp = new ApplianceService();
+        //подготовка хар-тик
         Property property = propCollector();
-        List<Appliance> findApp = finDAO.find(property);
 
 
-        if (!findApp.isEmpty()) {
-            console.printApp(findApp);
+        List<Appliance> apliances =  allApp.findAllAppliance(property);
+
+
+        if (!apliances.isEmpty()) {
+            console.printApp(apliances);
         } else {
             System.out.println("Appliance not found!");
         }

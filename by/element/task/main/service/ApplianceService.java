@@ -8,9 +8,9 @@ import by.element.task.main.dao.ApplianceDAO;
 import by.element.task.main.entity.appliance.Appliance;
 import by.element.task.main.entity.property.Property;
 
-public class AllAppliance {
+public class ApplianceService {
     
-    public AllAppliance(){
+    public ApplianceService(){
         
     }
     //готовит список всех приборов

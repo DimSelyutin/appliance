@@ -2,8 +2,7 @@ package by.element.task.main.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 import by.element.task.main.entity.appliance.Appliance;
 import by.element.task.main.entity.appliance.LapTop;
@@ -19,18 +18,20 @@ public class ApplianceCreator {
     public ApplianceCreator(List<String> dataFromSource) {
         this.dataFromSource = dataFromSource;
     }
-
+    //создает лист найденых приборов
     public List<Appliance> make() {
         List<Appliance> applianceObjList = new ArrayList<>();
 
-        // получение типа оборудования
+        
         for (String appStr : dataFromSource) {
             applianceObjList.add(createApp(appStr));
         }
+
         return applianceObjList;
 
     }
     
+    //подготавливает прибор из найденой строки
     private Appliance createApp(String appStr) {
         String groupNameSearch;
         int charInStr = appStr.indexOf(":");
@@ -38,26 +39,45 @@ public class ApplianceCreator {
                 groupNameSearch = appStr.substring(0, charInStr).trim();
             }
             groupNameSearch = "";
-
-        return switch (groupNameSearch) {
-            case("Oven") -> createOven(appStr);
-            default -> createLapTop();
-        };
-    }
-
-    private Appliance createOven(String appStr) {
-        Pattern pattern = Pattern.compile("=\\d");
-        Matcher matcher = pattern.matcher(appStr);
-
-        while (matcher.find()){
-            System.out.println("yes");
+        String[] apps = appStr.split(" ");
+        List<String> valueOfProperty = new ArrayList<>();
+        for (String string : apps) {
+            if (string.contains("=")) {
+                String value = string.substring(string.indexOf("=")+1, string.length()).replaceAll("\\,", "");
+                valueOfProperty.add(value);
+            }
         }
-        return new Oven("Gefest", 10, 80, 20, 80, 0, 0);
+        
+        return switch (groupNameSearch) {
+            case "Oven" -> createOven(valueOfProperty);
+            case "Laptop" -> createOven(valueOfProperty);
+            case "Refrigerator" -> createOven(valueOfProperty);
+            case "VacuumCleaner" -> createOven(valueOfProperty);
+            case "TabletPC" -> createOven(valueOfProperty);
+            default -> throw new IllegalArgumentException("Unexpected value: " + groupNameSearch);
+            
+            
+        };
+        
+
+        }
+
+
+    private Appliance createOven(List<String> valueOfProperty) { 
+        List<Integer> numberList = new ArrayList<>();      
+        for (String string : valueOfProperty) {
+            numberList.add(Integer.parseInt(string.trim()));
+        }
+        return new Oven("Gefest", numberList.get(0),numberList.get(1),numberList.get(2),numberList.get(3),(float)numberList.get(4),(float)numberList.get(5));
     }
 
-    private Appliance createLapTop() {
-
-        return new LapTop(null, 0, null, 0, 0, 0, 0);
+    private Appliance createLapTop(List<String> valueOfProperty) {
+        List<Integer> numberList = new ArrayList<>();      
+        for (String string : valueOfProperty) {
+            numberList.add(Integer.parseInt(string.trim()));
+        }
+        return new LapTop("Asus", (float)numberList.get(0), null, numberList.get(2), numberList.get(3), (float)numberList.get(4), numberList.get(5));
     }
+
 
 }

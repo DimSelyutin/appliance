@@ -7,11 +7,11 @@ public class LapTop extends Appliance implements Serializable {
     static final long SerialVersionUID = -4862926644813433707L;
 
 
-    private int battery_capacity;
+    private float battery_capacity;
     private String os;
     private int memory_rom;
     private int system_memory;
-    private int cpu;
+    private float cpu;
     private int display_inchs;
 
     public LapTop(){
@@ -24,7 +24,7 @@ public class LapTop extends Appliance implements Serializable {
         this.display_inchs = 0;
     }
 
-    public LapTop(String maker, int battery_capacity, String os, int memory_rom, int system_memory, int cpu,
+    public LapTop(String maker, float battery_capacity, String os, int memory_rom, int system_memory, float cpu,
             int display_inchs) {
         super(maker);
         this.battery_capacity = battery_capacity;
@@ -34,7 +34,7 @@ public class LapTop extends Appliance implements Serializable {
         this.cpu = cpu;
         this.display_inchs = display_inchs;
     }
-    public int getBattery_capacity() {
+    public float getBattery_capacity() {
         return battery_capacity;
     }
     public void setBattery_capacity(int battery_capacity) {
@@ -58,7 +58,7 @@ public class LapTop extends Appliance implements Serializable {
     public void setSystem_memory(int system_memory) {
         this.system_memory = system_memory;
     }
-    public int getCpu() {
+    public float getCpu() {
         return cpu;
     }
     public void setCpu(int cpu) {
@@ -71,15 +71,20 @@ public class LapTop extends Appliance implements Serializable {
         this.display_inchs = display_inchs;
     }
 
+ 
+
+   
+
+   
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = super.hashCode();
-        result = prime * result + battery_capacity;
+        result = prime * result + Float.floatToIntBits(battery_capacity);
         result = prime * result + ((os == null) ? 0 : os.hashCode());
         result = prime * result + memory_rom;
         result = prime * result + system_memory;
-        result = prime * result + cpu;
+        result = prime * result + Float.floatToIntBits(cpu);
         result = prime * result + display_inchs;
         return result;
     }
@@ -93,7 +98,7 @@ public class LapTop extends Appliance implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         LapTop other = (LapTop) obj;
-        if (battery_capacity != other.battery_capacity)
+        if (Float.floatToIntBits(battery_capacity) != Float.floatToIntBits(other.battery_capacity))
             return false;
         if (os == null) {
             if (other.os != null)
@@ -104,16 +109,16 @@ public class LapTop extends Appliance implements Serializable {
             return false;
         if (system_memory != other.system_memory)
             return false;
-        if (cpu != other.cpu)
+        if (Float.floatToIntBits(cpu) != Float.floatToIntBits(other.cpu))
             return false;
         if (display_inchs != other.display_inchs)
             return false;
         return true;
     }
-
     @Override
     public String toString() {
         return "LapTop ["+super.toString()+"battery_capacity=" + battery_capacity + ", os=" + os + ", memory_rom=" + memory_rom
                 + ", system_memory=" + system_memory + ", cpu=" + cpu + ", display_inchs=" + display_inchs + "]";
     }
+
 }
