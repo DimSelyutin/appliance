@@ -14,7 +14,7 @@ public class ApplianceService {
         
     }
     //готовит список всех приборов
-    public List<Appliance> findAllAppliance(Property prop) throws IOException{
+    public List<Appliance> findAppliance(Property prop) throws IOException{
 
         DAOFactory daoObjFactory = DAOFactory.getInstance();
         ApplianceDAO findApp  = daoObjFactory.getFindApplianceDAO();

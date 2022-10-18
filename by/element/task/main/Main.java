@@ -26,7 +26,7 @@ public class Main {
         Property property = propCollector();
 
 
-        List<Appliance> apliances =  allApp.findAllAppliance(property);
+        List<Appliance> apliances =  allApp.findAppliance(property);
 
 
         if (!apliances.isEmpty()) {

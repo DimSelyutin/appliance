@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import by.element.task.main.entity.appliance.Appliance;
-import by.element.task.main.entity.appliance.LapTop;
-import by.element.task.main.entity.appliance.Oven;
+import by.element.task.main.entity.appliance.*;
+
 
 public class ApplianceCreator {
     private List<String> dataFromSource;
@@ -41,6 +41,7 @@ public class ApplianceCreator {
         }
         String[] apps = appStr.split(" ");
         List<String> valueOfProperty = new ArrayList<>();
+
         for (String string : apps) {
             if (string.contains("=")) {
                 String value = string.substring(string.indexOf("=") + 1, string.length()).replaceAll("\\,", "");
@@ -52,8 +53,8 @@ public class ApplianceCreator {
             case "Oven" -> createOven(valueOfProperty);
             case "Laptop" -> createLapTop(valueOfProperty);
             case "Refrigerator" -> createRefrigerator(valueOfProperty);
-            case "VacuumCleaner" -> createVacuumCleaner(valueOfProperty);
-            case "TabletPC" -> createTabletPC(valueOfProperty);
+            case "VacumCleaner" -> createVacuumCleaner(valueOfProperty);
+
             default -> throw new IllegalArgumentException();
 
         };
@@ -71,40 +72,40 @@ public class ApplianceCreator {
 
     }
 
+
     private Appliance createLapTop(List<String> valueOfProperty) {
-        return new LapTop("Gefest", Float.parseFloat(valueOfProperty.get(0)),
-                "",
+        return new LapTop("Asus", Float.parseFloat(valueOfProperty.get(0)),
+                valueOfProperty.get(1),
                 Integer.parseInt(valueOfProperty.get(2)),
                 Integer.parseInt(valueOfProperty.get(3)),
                 Float.parseFloat(valueOfProperty.get(4)),
                 Integer.parseInt(valueOfProperty.get(5)));
     }
+
+
 
     private Appliance createRefrigerator(List<String> valueOfProperty) {
-        return new LapTop("Gefest", Float.parseFloat(valueOfProperty.get(0)),
-                "",
-                Integer.parseInt(valueOfProperty.get(2)),
-                Integer.parseInt(valueOfProperty.get(3)),
+        return new Refrigerator("Atlant", 
+                Float.parseFloat(valueOfProperty.get(1)),
+                Float.parseFloat(valueOfProperty.get(2)),
+                Float.parseFloat(valueOfProperty.get(3)),
                 Float.parseFloat(valueOfProperty.get(4)),
-                Integer.parseInt(valueOfProperty.get(5)));
+                Float.parseFloat(valueOfProperty.get(5)),
+                Float.parseFloat(valueOfProperty.get(6)));
     }
+
+
 
     private Appliance createVacuumCleaner(List<String> valueOfProperty) {
-        return new LapTop("Gefest", Float.parseFloat(valueOfProperty.get(0)),
-                "",
-                Integer.parseInt(valueOfProperty.get(2)),
-                Integer.parseInt(valueOfProperty.get(3)),
-                Float.parseFloat(valueOfProperty.get(4)),
-                Integer.parseInt(valueOfProperty.get(5)));
+        return new VacuumCleaner(Float.parseFloat(valueOfProperty.get(0)) ,"Dyson",
+                valueOfProperty.get(1),
+                valueOfProperty.get(2),
+                Float.parseFloat(valueOfProperty.get(3)),
+                Float.parseFloat(valueOfProperty.get(4)));
     }
 
-    private Appliance createTabletPC(List<String> valueOfProperty) {
-        return new LapTop("Gefest", Float.parseFloat(valueOfProperty.get(0)),
-                "",
-                Integer.parseInt(valueOfProperty.get(2)),
-                Integer.parseInt(valueOfProperty.get(3)),
-                Float.parseFloat(valueOfProperty.get(4)),
-                Integer.parseInt(valueOfProperty.get(5)));
-    }
+
+
+    
 
 }
