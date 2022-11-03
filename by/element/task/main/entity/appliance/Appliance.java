@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Appliance implements Serializable {
     
-    static final long SerialVersionUID = -4862926644813433707L;
+    private static final long SerialVersionUID = -4862926644813433707L;
     
     
     private String maker;
