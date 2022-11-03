@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Oven extends Appliance implements Serializable {
 
-    static final long SerialVersionUID = -4862926644813433707L;
+    private static final long SerialVersionUID = -4862926644813433707L;
     
     private int power_consumption;
     private int weight;
